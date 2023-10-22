@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Payment Page</h1>
+    <div id="product-details"></div>
+
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        var productName = getParameterByName('product');
+        var productDetails = "";
+
+        if (productName) {
+            // Customize the product details for each product
+            if (productName === "15promax2") {
+                productDetails = "Estás a comprar o IPhone 15 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 135.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Esolha na mensagem de pagamento</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 15 Pro Max é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 15 Pro Max 256GB Cor: (Insira a cor que deseja Aqui), stock:(21) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Apple Store Moz. <ANEXE O SCREENSHOT DO PRODUCTO A SEGUIR A ESTA MENSAGEM>">Paga aqui</a></button>'; 
+
+                
+            } else if (productName === "15pro") {
+      productDetails = "Estás a comprar o IPhone 15 Pro.";
+    productDetails += "<p><strong>preço:</strong> 145.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Esolha na mensagem de pagamento</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> Esoclha na mensagem de pagamento</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 15 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 15 Pro Armazenamento:(Insira o armazenamento que deseja aqui) Cor: (Insira cor desejada), stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+
+            else if (productName === "15") {
+                 productDetails = "Estás a comprar o IPhone 15.";
+    productDetails += "<p><strong>preço:</strong> 85.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Esolha na mensagem de pagamento</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> Esoclha na mensagem de pagamento</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 15  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 15, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            }             
+            
+            else if (productName === "15promax5") {
+                  productDetails = "Estás a comprar o IPhone 15 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 155.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Esolha na mensagem de pagamento</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 512GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 15 Pro Max é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 15 Pro Max 512GB , stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+         
+            else if (productName === "15pro1") {
+               productDetails = "Estás a comprar o IPhone 15 Pro.";
+    productDetails += "<p><strong>preço:</strong> 115.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Esolha na mensagem de pagamento</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 125G8</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 15 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 15 Pro 128GB , stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            
+            else if (productName === "151") {
+                 productDetails = "Estás a comprar o IPhone 15.";
+    productDetails += "<p><strong>preço:</strong> 79.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Esolha na mensagem de pagamento</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 15 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 15 128GB , stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "15plus") {
+                productDetails = "Estás a comprar o IPhone 15 Plus.";
+    productDetails += "<p><strong>preço:</strong> 85.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Esolha na mensagem de pagamento</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> Esoclha na mensagem de pagamento</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 15 Plus  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 15 Plus, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "15promaxt") {
+               productDetails = "Estás a comprar o IPhone 15 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 175.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Esolha na mensagem de pagamento</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 1T</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 15 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 15 Pro Max 1T , stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "15pro2") {
+                 productDetails = "Estás a comprar o IPhone 15 Pro.";
+    productDetails += "<p><strong>preço:</strong> 125.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> EsColha na mensagem de pagamento</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 15 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 15 PRO 256GB , stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14BL1") {
+                  productDetails = "Estás a comprar o IPhone 14.";
+    productDetails += "<p><strong>preço:</strong> 44.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14   é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 128GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14M1") {
+                  productDetails = "Estás a comprar o IPhone 14.";
+    productDetails += "<p><strong>preço:</strong> 42.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Midnight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 128GB MIDNIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14plusM2") {
+             productDetails = "Estás a comprar o IPhone 14 Plus.";
+    productDetails += "<p><strong>preço:</strong> 51.-500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Midnight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Plus  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Plus 256GB MIDNIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14plusm1") {
+              productDetails = "Estás a comprar o IPhone 14 Plus.";
+    productDetails += "<p><strong>preço:</strong> 49.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Midnight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Plus é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Plus 128GB MIDNIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14plusS1") {
+                productDetails = "Estás a comprar o IPhone 14 Plus.";
+    productDetails += "<p><strong>preço:</strong> 48.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Starlight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong>  128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Plus  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Plus 128GB STARLIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14plusBL1") {
+                 productDetails = "Estás a comprar o IPhone 14 Plus.";
+    productDetails += "<p><strong>preço:</strong> 51.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Plus é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Plus 128GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14proSBK2") {
+           productDetails = "Estás a comprar o IPhone 14 Pro.";
+    productDetails += "<p><strong>preço:</strong> 70.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro 256GB SILVER BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14promaxGO1") {
+               productDetails = "Estás a comprar o IPhone 14 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 76.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro Max 128GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14promaxDP1") {
+                 productDetails = "Estás a comprar o IPhone 14 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 76.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Deep Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro Max 128GB DEEP PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14promaxGO2") {
+                productDetails = "Estás a comprar o IPhone 14 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 81.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 258GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro Max 256GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14promaxDP5") {
+                 productDetails = "Estás a comprar o IPhone 14 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 83.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Deep Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 512GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro Max 512GB DEEP PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14proGO1") {
+               productDetails = "Estás a comprar o IPhone 14 Pro.";
+    productDetails += "<p><strong>preço:</strong> 69.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro 128GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14proDP2") {
+                productDetails = "Estás a comprar o IPhone 14 Pro.";
+    productDetails += "<p><strong>preço:</strong> 69.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Deep Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro 256GB DEEP PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14promaxW2") {
+                 productDetails = "Estás a comprar o IPhone 14 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 49.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> White</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro Max 256GB WHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14BL") {
+                 productDetails = "Estás a comprar o IPhone 14.";
+    productDetails += "<p><strong>preço:</strong> 47.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> (revisando...) </p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14BL1") {
+                productDetails = "Estás a comprar o IPhone 14.";
+    productDetails += "<p><strong>preço:</strong> 54.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 128GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14P1") {
+                productDetails = "Estás a comprar o IPhone 14.";
+    productDetails += "<p><strong>preço:</strong> 59.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14   é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 128GB PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14BL2") {
+         productDetails = "Estás a comprar o IPhone 14.";
+    productDetails += "<p><strong>preço:</strong> 58.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 256GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14M2") {
+                 productDetails = "Estás a comprar o IPhone 14.";
+    productDetails += "<p><strong>preço:</strong> 58.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Midnight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14  256GB MIDNIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14plusM1") {
+               productDetails = "Estás a comprar o IPhone 14 Plus.";
+    productDetails += "<p><strong>preço:</strong> 64.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Midnight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Plus  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Plus 128GB MIDNIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14promaxGO2") {
+           productDetails = "Estás a comprar o IPhone 14 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 96.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro Max 256GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14proDP2") {
+              productDetails = "Estás a comprar o IPhone 14 Pro.";
+    productDetails += "<p><strong>preço:</strong> 86.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Deep Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro 256GB DEEP PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14proDP2") {
+                productDetails = "Estás a comprar o IPhone 14 Pro.";
+    productDetails += "<p><strong>preço:</strong> 86.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Deep Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro Max 256GB DEEP PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14promaxDP1") {
+                 productDetails = "Estás a comprar o IPhone 14 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 90.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Deep Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro Max 128GB DEEP PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14promaxDO1") {
+              productDetails = "Estás a comprar o IPhone 14 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 93.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong>  Deep Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro Max 128GB DEEP PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "14promaxGO2") {
+                productDetails = "Estás a comprar o IPhone 14 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 100.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 14 Pro Max 256GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13proG1") {
+               productDetails = "Estás a comprar o IPhone 13 Pro.";
+    productDetails += "<p><strong>preço:</strong> 48.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro 128GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13BL2") {
+      productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 40.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 256GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13B1") {
+                  productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 48.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 128GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13miniS1") {
+               productDetails = "Estás a comprar o IPhone 13 Mini.";
+    productDetails += "<p><strong>preço:</strong> 33.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Starlight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 14 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Mini 128GB STARLIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13miniM1") {
+                 productDetails = "Estás a comprar o IPhone 13 Mini.";
+    productDetails += "<p><strong>preço:</strong> 30.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Midnight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong>128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Mini 128GB MIDNIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13proS2") {
+               productDetails = "Estás a comprar o IPhone 13 Pro.";
+    productDetails += "<p><strong>preço:</strong> 53.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro 256GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13miniS1") {
+                 productDetails = "Estás a comprar o IPhone 13 Mini.";
+    productDetails += "<p><strong>preço:</strong> 45.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Starlight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Mini 128GB STARLIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13miniM1") {
+                productDetails = "Estás a comprar o IPhone 13 Mini.";
+    productDetails += "<p><strong>preço:</strong> 30.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Midnight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Mini é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Mini 128GB MIDNIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13BD1") {
+                  productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 38.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 128GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13miniP1") {
+              productDetails = "Estás a comprar o IPhone 13 Mini.";
+    productDetails += "<p><strong>preço:</strong> 30.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Mini 128GB PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13miniS1") {
+                  productDetails = "Estás a comprar o IPhone 13 Mini.";
+    productDetails += "<p><strong>preço:</strong> 30.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Starlight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Mini é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Mini 128GB STARLIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13miniS2") {
+                productDetails = "Estás a comprar o IPhone 13 Mini.";
+    productDetails += "<p><strong>preço:</strong> 30.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Starlight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Mini 256GB STARLIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13proGO2") {
+              productDetails = "Estás a comprar o IPhone 13 Pro.";
+    productDetails += "<p><strong>preço:</strong> 48.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong>  Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro 256GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13BD2") {
+                productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 43.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 256GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13BD1") {
+                  productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 45.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 128GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13P1") {
+                 productDetails = "Estás a comprar o IPhone 13";
+    productDetails += "<p><strong>preço:</strong> 45.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Pink</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 128GB PINK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13R1") {
+                 productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 44.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Red </p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 128GB RED, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13R1") {
+                 productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 45.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Red</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 128GB RED, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13R1") {
+                productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 45.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Red</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 128GB RED, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13P1") {
+             productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 45.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 128GB PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13SGB1") {
+                 productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 44.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 128GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13M2") {
+                  productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 46.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Midnight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 256GB MIDNIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13M2") {
+                   productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 47.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Midnight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 256GB MIDNIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13P2") {
+                  productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 47.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 256GB PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13S2") {
+               productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 45.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 256GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13S5") {
+                   productDetails = "Estás a comprar o IPhone 13.";
+    productDetails += "<p><strong>preço:</strong> 46.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 512GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 512GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13proGO1") {
+                productDetails = "Estás a comprar o IPhone 13 Pro.";
+    productDetails += "<p><strong>preço:</strong> 56.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128BG</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro 128GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13proG1") {
+               productDetails = "Estás a comprar o IPhone 13 Pro.";
+    productDetails += "<p><strong>preço:</strong> 55.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro 128GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13promaxSB1") {
+                  productDetails = "Estás a comprar o IPhone 13 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 65.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Sierra Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro Max 128GB SIERRA BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13promaxG1") {
+                  productDetails = "Estás a comprar o IPhone 13 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 69.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro Max 128GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13promaxGO5") {
+                  productDetails = "Estás a comprar o IPhone 13 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 70.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 512GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro Max 512GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13miniB1") {
+               productDetails = "Estás a comprar o IPhone 13 Mini.";
+    productDetails += "<p><strong>preço:</strong> 36.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Mini 128GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13proG1") {
+                 productDetails = "Estás a comprar o IPhone 13 Pro.";
+    productDetails += "<p><strong>preço:</strong> 57.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro 128GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13proS1") {
+                productDetails = "Estás a comprar o IPhone 13 Pro.";
+    productDetails += "<p><strong>preço:</strong> 54.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro 128GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13proG2") {
+                  productDetails = "Estás a comprar o IPhone 13 Pro.";
+    productDetails += "<p><strong>preço:</strong> 53.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro 256GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13promaxG1") {
+                  productDetails = "Estás a comprar o IPhone 13 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 69.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro Max 128GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13promaxSB1") {
+               productDetails = "Estás a comprar o IPhone 13 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 65.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Sierra Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro Max 128GB Sierra Blue, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13promax2") {
+                 productDetails = "Estás a comprar o IPhone 13 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 72.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> (Graphite)</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro Max 256GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "13promax2") {
+                 productDetails = "Estás a comprar o IPhone 13 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 69.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> (Graphite)</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256BG</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 13 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 13 Pro Max 256GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxB2") {
+               productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 49.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 256GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12miniW1") {
+                 productDetails = "Estás a comprar o IPhone 12 Mini.";
+    productDetails += "<p><strong>preço:</strong> 30.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> White</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Mini 128GB WHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12BD1") {
+                 productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 31.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 128GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxGO5") {
+                 productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 49.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 512B</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 512GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxG2") {
+               productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 32.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 256GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxGO1") {
+                  productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 47.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 128GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12miniR6") {
+                   productDetails = "Estás a comprar o IPhone 12 Mini.";
+    productDetails += "<p><strong>preço:</strong> 23.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Red</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Mini 64GB RED, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxGO2") {
+              productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 49.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 256GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12BK1") {
+                   productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 30.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 128GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12BL1") {
+               productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 51.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 128GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12W1") {
+                 productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 36.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> White</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 128GB WHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12W1") {
+                   productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 36.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> White</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 128GB WHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12BK2") {
+                 productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 36.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 256GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12R2") {
+                  productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 53.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Red</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 256GB RED, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12R2") {
+                  productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 53.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Red</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 256GB RED, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12BK6") {
+                productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 35.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 64GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12BK6") {
+                  productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 49.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 64GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12BK6") {
+                 productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 50.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong>  64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 64GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12B6") {
+                  productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 33.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 64GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12W6") {
+                 productDetails = "Estás a comprar o IPhone 12.";
+    productDetails += "<p><strong>preço:</strong> 33.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> White</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 64GB WHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12miniP1") {
+                  productDetails = "Estás a comprar o IPhone 12 Mini.";
+    productDetails += "<p><strong>preço:</strong> 39.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Mini 128GB PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12proGO1") {
+                productDetails = "Estás a comprar o IPhone 12 Pro.";
+    productDetails += "<p><strong>preço:</strong> 69.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro 128GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12proG1") {
+                  productDetails = "Estás a comprar o IPhone 12 Pro.";
+    productDetails += "<p><strong>preço:</strong> 45.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro  128GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxG1") {
+                 productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 77.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 128GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxS1") {
+               productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 77.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 128GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxGO2") {
+                  productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 55.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 256GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxS1") {
+                productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 54.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 128GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxPC2") {
+                productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 80.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Pacific Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 256GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxPB5") {
+                   productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 56.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Pacific Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 512GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 512GB PACIFIC BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxGO1") {
+                   productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 77.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 128GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxS1") {
+                   productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 54.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 128GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12miniS1") {
+                 productDetails = "Estás a comprar o IPhone 12 Mini.";
+    productDetails += "<p><strong>preço:</strong> 77.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Starlight</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Mini 128GB STARLIGHT, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12miniG1") {
+               productDetails = "Estás a comprar o IPhone 12 Mini.";
+    productDetails += "<p><strong>preço:</strong> 29.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Green</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Mini 128GB GREEN, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12miniP1") {
+               productDetails = "Estás a comprar o IPhone 12 Mini.";
+    productDetails += "<p><strong>preço:</strong> 35.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Mini 128GB PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12miniBK6") {
+                productDetails = "Estás a comprar o IPhone 12 Mini.";
+    productDetails += "<p><strong>preço:</strong> 38.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Mini 64GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12miniP6") {
+                 productDetails = "Estás a comprar o IPhone 12 Mini.";
+    productDetails += "<p><strong>preço:</strong> 27.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Mini  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Mini 64GB PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12proG1") {
+                 productDetails = "Estás a comprar o IPhone 12 Pro.";
+    productDetails += "<p><strong>preço:</strong> 43.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro 128GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12proG1") {
+                 productDetails = "Estás a comprar o IPhone 12 Pro.";
+    productDetails += "<p><strong>preço:</strong> 68.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro 128GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12proGO2") {
+                 productDetails = "Estás a comprar o IPhone 12 Pro.";
+    productDetails += "<p><strong>preço:</strong> 44.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro 256GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxGO1") {
+                 productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 50.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 128GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxG1") {
+                 productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 77.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 128GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxPB1") {
+                 productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 50.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Pacific Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 128GB PACIFIC BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxPC1") {
+                  productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 54.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Pacific Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 128GB PACIFIC BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "12promaxPB5") {
+                 productDetails = "Estás a comprar o IPhone 12 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 56.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Pacific Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 512GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 12 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 12 Pro Max 512GB PACIFIC BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11W6") {
+                  productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 26.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> White</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 64GB WHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11P6") {
+               productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 30.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 64GB PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11proSG2") {
+             productDetails = "Estás a comprar o IPhone 11 Pro.";
+    productDetails += "<p><strong>preço:</strong> 37.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Space Gray</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro 256GB SPACE GRAY, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11proSP2") {
+                 productDetails = "Estás a comprar o IPhone 11 Pro.";
+    productDetails += "<p><strong>preço:</strong> 38.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro 256GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11R6") {
+                 productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 27.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Red</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 64GB RED, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11W1") {
+                  productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 26.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> White</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11   é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 128GB WHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11BK1") {
+                  productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 29.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11   é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 128GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11BK1") {
+                  productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 40.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11   é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 128GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11BK1") {
+                 productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 42.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11   é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 128GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11BK6") {
+               productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 29.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 64GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11G6") {
+                  productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 40.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 64GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11P6") {
+                productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 40.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Purple</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 64GB PURPLE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11R6") {
+                   productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 26.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Red</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 64GB RED, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11R6") {
+                  productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 27.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Red</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 64GB RED, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11R6") {
+                 productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 40.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Red</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 64GB RED, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11W6") {
+                  productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 25.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> White</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 64GB WHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11BK6") {
+               productDetails = "Estás a comprar o IPhone 11.";
+    productDetails += "<p><strong>preço:</strong> 26.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 64GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11proS6") {
+                 productDetails = "Estás a comprar o IPhone 11 Pro.";
+    productDetails += "<p><strong>preço:</strong> 33.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro 64GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11proBK6") {
+                 productDetails = "Estás a comprar o IPhone 11 Pro.";
+    productDetails += "<p><strong>preço:</strong> 49.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro64GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11promaxBK6") {
+               productDetails = "Estás a comprar o IPhone 11 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 56.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro Max 64GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11promaxG6") {
+                productDetails = "Estás a comprar o IPhone 11 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 56.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro  Max 64GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11promaxGO6") {
+                  productDetails = "Estás a comprar o IPhone 11 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 56.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro Max 64GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11proSG2") {
+                productDetails = "Estás a comprar o IPhone 11 Pro.";
+    productDetails += "<p><strong>preço:</strong> 49.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Space Gray</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro 256GB GRAY, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11proBK2") {
+                 productDetails = "Estás a comprar o IPhone 11 Pro.";
+    productDetails += "<p><strong>preço:</strong> 48.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro 256GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11proBK6") {
+                productDetails = "Estás a comprar o IPhone 11 Pro.";
+    productDetails += "<p><strong>preço:</strong> 49.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro 64GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11proG6") {
+                  productDetails = "Estás a comprar o IPhone 11 Pro.";
+    productDetails += "<p><strong>preço:</strong> 49.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite </p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro 64GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11proG6") {
+                 productDetails = "Estás a comprar o IPhone 11 Pro.";
+    productDetails += "<p><strong>preço:</strong> 49.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XS Max 64GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11proGO6") {
+                productDetails = "Estás a comprar o IPhone 11 Pro.";
+    productDetails += "<p><strong>preço:</strong> 32.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro 64GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11promaxGO6") {
+                 productDetails = "Estás a comprar o IPhone 11 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 39.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64G</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro Max é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro Max 64GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11promaxS6") {
+                 productDetails = "Estás a comprar o IPhone 11 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 55.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro Max 64GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "11promaxS6") {
+                  productDetails = "Estás a comprar o IPhone 11 Pro Max.";
+    productDetails += "<p><strong>preço:</strong> 55.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 11 Pro Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 11 Pro Max 64GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "7plusS1") {
+                  productDetails = "Estás a comprar o IPhone 7 Plus.";
+    productDetails += "<p><strong>preço:</strong> 16.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 7 PLUS Pro  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 7 Plus 128GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "8plusG1") {
+                productDetails = "Estás a comprar o IPhone 8 Plus.";
+    productDetails += "<p><strong>preço:</strong> 23.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Graphite</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone 8 Plus  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone 8 Plus 128GB GRAPHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xS2") {
+                 productDetails = "Estás a comprar o IPhone X.";
+    productDetails += "<p><strong>preço:</strong> 25.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone X  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone X 256GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xSG6") {
+                 productDetails = "Estás a comprar o IPhone XS.";
+    productDetails += "<p><strong>preço:</strong> 22.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gold</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone XS  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XS  64GB GOLD, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xrBK1") {
+                  productDetails = "Estás a comprar o IPhone XR.";
+    productDetails += "<p><strong>preço:</strong> 24.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Black</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone XR  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XR 128GB BLACK, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xsS6") {
+                productDetails = "Estás a comprar o IPhone XS.";
+    productDetails += "<p><strong>preço:</strong> 20.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone XS  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XS  64GB GRAY, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xsmaxS2") {
+              productDetails = "Estás a comprar o IPhone XS Max.";
+    productDetails += "<p><strong>preço:</strong> 25.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone XS Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XS Max 256GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xW2") {
+              productDetails = "Estás a comprar o IPhone X.";
+    productDetails += "<p><strong>preço:</strong> 145.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> White</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone X  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone X 256GB WHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xS2") {
+                  productDetails = "Estás a comprar o IPhone X.";
+    productDetails += "<p><strong>preço:</strong> 29.800Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256BG</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone X  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone X 256GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xS6") {
+                  productDetails = "Estás a comprar o IPhone X.";
+    productDetails += "<p><strong>preço:</strong> 29.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone X  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone X 64GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xrB1") {
+    productDetails = "Estás a comprar o IPhone XR.";
+    productDetails += "<p><strong>preço:</strong> 28.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Blue</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 128GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone XR  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XR 128GB BLUE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xrW64") {
+                  productDetails = "Estás a comprar o IPhone XR.";
+    productDetails += "<p><strong>preço:</strong> 27.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> White</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone  XR  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XR 64GB WHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xrW6") {
+   productDetails = "Estás a comprar o IPhone XR.";
+    productDetails += "<p><strong>preço:</strong> 28.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> White</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone XR  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XR 64GB WHITE, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xsG6") {
+    productDetails = "Estás a comprar o IPhone XS.";
+    productDetails += "<p><strong>preço:</strong> 30.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gray</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone XS  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XS  64GB GRAY, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xsG6") {
+                productDetails = "Estás a comprar o IPhone XS.";
+    productDetails += "<p><strong>preço:</strong> 37.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gray</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone XS  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XS  64GB GRAY, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xsmaxS6") {
+                productDetails = "Estás a comprar o IPhone XS Max.";
+    productDetails += "<p><strong>preço:</strong> 25.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Silver</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 64GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone XS Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XS Max 64GB SILVER, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xsmax2") {
+                productDetails = "Estás a comprar o IPhone XS Max.";
+    productDetails += "<p><strong>preço:</strong> 29.000Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> (Graphite)</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone XS Max  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XS Max 256GB Graphite, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+            else if (productName === "xsmaxG2") {
+              productDetails = "Estás a comprar o IPhone XS Max.";
+    productDetails += "<p><strong>preço:</strong> 28.500Mt</p>";
+    productDetails += "<p><strong>Cor:</strong> Gray</p>";
+    productDetails += "<p><strong>Armazenamento:</strong> 256GB</p>";
+    productDetails += "<p><strong>Descrição:</strong> O iPhone XS  é o mais recente smartphone carro-chefe da Apple, conhecido por seus recursos de ponta e desempenho.</p>";
+    productDetails += '<button onclick="processPayment()"><a href="https://api.whatsapp.com/send?phone=+258855184335&text=(Producto):Iphone XS Max 256GB GRAY, stock:(23) Forma de pagamento (adicione X ao metodo que deseja) -Banco -Emola -Mpesa -Conta movel   Fornecido por Aplle Store Moz.">Paga aqui</a></button>'; 
+            } 
+
+            else {
+                productDetails = "Product details for " + productName;
+            }
+        } else {
+            productDetails = "No product selected.";
+        }
+
+        document.getElementById('product-details').innerHTML = productDetails;
+    </script>
+</body>
+</html>
